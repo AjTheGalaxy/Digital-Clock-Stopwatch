@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Project</title>
+    <script>
+        let a;
+        let date;
+        let time;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleDateString(undefined, options);
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time + " on " + date;
+        }, 1000);
+
+        
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgb(4, 4, 4);
+            border: 3px solid cyan;
+            padding: 15px 19px;
+            width: 703px;
+            height: 250px;
+            margin: 100px 200px;
+            box-shadow: 3px 5px cyan;
+        }
+
+        .h1 {
+            text-align: center;
+            font-style: italic;
+            color: cyan;
+            font-size: 4vw;
+            border-radius: 23px;
+        }
+        
+        .h2 {
+            color: cyan;
+        }
+
+        #box {
+            font-style: oblique;
+            font-size: 2vw;
+            color: cyan;
+        }
+
+        .btn {
+            background-color: cyan;
+            color: rgb(12, 11, 11);
+            border-radius: 15px;
+            padding: 8px;
+        }
+
+        .btn:hover {
+            background-color: rgb(246, 238, 238);
+            color: cyan;
+        }
+
+        .s {
+            text-align: center;
+            font-size: 50px;
+            font-family: cursive;
+            color: red;
+        }
+
+        .stopwatch {
+            width: 90%;
+            max-width: 700px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(images/bgstopwatch.jpg);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: cyan;
+            padding: 40px 0;
+            margin: 50px auto 100px;
+            box-shadow: 0 10px 10px cyan;
+            border-radius: 20px;
+        }
+
+        .stopwatch h2 {
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-size: 64px;
+            font-weight: 40px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+
+        .buttons img {
+            width: 70px;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+
+        .buttons img:nth-child(2) {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="h1">Clock</h1>
+        <br>
+        
+        <p id="box">Current Time is : <span id="time"></span> </p>
+        <hr>
+        <br>
+        <p class="h2">We are here to show you the time</p>
+        <br>
+        <button class="btn">Thanks For Watching</button>
+    </div>
+    <hr>
+    <br>
+    <div class="s">Stop Watch</div>
+    <div class="stopwatch">
+        <h2 id="displayTime">00:00:00</h2>
+        <div class="buttons">
+            <img src="images/stop.png" onclick="watchStop()">
+            <img src="images/start.png" onclick="watchStart()">
+            <img src="images/reset.png" onclick="watchReset()">
+        </div>
+    </div>
+    <script src="stopwatch.js"></script>
+</body>
+</html>
